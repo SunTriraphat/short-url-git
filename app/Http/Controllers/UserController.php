@@ -17,5 +17,7 @@ class UserController extends Controller
         return view('links.all-link',compact('links'));
     }
 
+   
+
 
 }

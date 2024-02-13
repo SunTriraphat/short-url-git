@@ -10,9 +10,17 @@ use Illuminate\Http\Request;
 class UrlController extends Controller
 {
     //
+   
+    public function destroy(Request $request)
+    { 
+        $delete_url = shortUrl::where('id',$request->id)->delete();
+        return redirect()->back()->with('alert', 'delete success!');
+    }
+    
+    
     public function short(ShortRequest $request)
-    {
-       
+    { 
+        
         if ($request->original_url) {
             if(auth()->user()){
                 $new_url = auth()->user()->links()->create([
@@ -30,11 +38,8 @@ class UrlController extends Controller
                 $new_url->update();
                 return redirect()->back()->with('success_message','<h1 class="text-3xl text-red-500 ">Click your url: <a class="underline underline-offset-8 " href="'.url($short_url).'">'.url($short_url).'"</a></h1>');
             }
-
         }
         return back();
-
-       
     }
     public function show($code){
        $short_url = shortUrl::where('short_url',$code)->first();
@@ -44,4 +49,6 @@ class UrlController extends Controller
        }
        return redirect()->to(url('/'));
     }
+
+    
 }

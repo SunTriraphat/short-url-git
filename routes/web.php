@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UrlController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,5 +32,11 @@ Route::middleware([
 
 Route::get('/link',[UserController::class,'index'])->name('user.links')->middleware('auth');
 Route::get('/allLink',[UserController::class,'allLink'])->name('user.allLink');
+
+
 Route::post('/short',[UrlController::class,'short'])->name('short.url');
+Route::post('/edit',[UrlController::class,'edit'])->name('short.edit');
+Route::post('/destroy',[UrlController::class,'destroy'])->name('short.destroy');
 Route::get('/{code}',[UrlController::class,'show'])->name('short.show');
+
+
