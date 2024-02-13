@@ -35,7 +35,7 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $loop->index + 1 }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $item->original_url }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ url(@$item->short_url) }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap"><a class="underline underline-offset-4" href="{{$item->original_url}}">{{ url(@$item->short_url) }}</a></td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $item->ShortUrltoUser->name }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                 
