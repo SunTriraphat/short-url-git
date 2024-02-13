@@ -10,4 +10,8 @@ class ShortUrl extends Model
     use HasFactory;
     protected $fillable = ['original_url','short_url'];
     
+    public function ShortUrltoUser()
+    {
+        return $this->hasOne(User::class,'id','user_id');
+    }
 }

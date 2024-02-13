@@ -20,6 +20,9 @@
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
                                 Short_url</th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
+                                name</th>
 
                         </tr>
                     </thead>
@@ -31,7 +34,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $loop->index+1}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $item->original_url }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ url(@$item->short_url) }}</td>
-
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $item->ShortUrltoUser->name}}</td>
                             </tr>
                         @endforeach
 
